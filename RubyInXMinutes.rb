@@ -1,6 +1,3 @@
-Kamil Zieliński TE2 215521
-=========
-```sh
 #! /usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
@@ -39,12 +36,9 @@ class Shape
     @@Autor
   end
 end
-
 # ==> nil
-```
 
-------------------------------------
-```sh
+##########################
 kolo = Shape.new(kolo,10,5);
 kolo.Autor
 # ==> "Kamil"
@@ -53,10 +47,9 @@ kolo.name="Koło"
 kolo.y
 # ==> 5
 # kolo.y = 10; zwrociło by błąd
-```
+
 
 # Znaczek dziedziczenia jest tez ciekawy
-```sh
 class Square < Shape
  attr_accessor :bok
 
@@ -70,78 +63,55 @@ class Square < Shape
      bok*bok
    end
  end
-
 # ==> nil
-```
 
-```sh
+##########################
 kwadrat = Square.new(10)
-
 # ==> #<Square:0xb739d05c @name="Kwadrat", @bok=10>
-```
+
 # Można rozszezyc istniejace juz klasy
-```sh
 class Square
   def Ala_ma_kota!
     @name="Ala ma kota"
   end
 end
-
 # ==> nil
-```
 
 # Istnieją też moduly
-```sh
 module CatHasAla
   # Można uzywać różnych znaków w nazwie metod np !,?,=
   def isHasAla?
     true
   end
 end
-
 # ==> nil
-```
 
 #Przyklad wdrazania modulu
-```sh
 class Square
  include CatHasAla
 end
-
 # ==> Square
-```
 
 # Instantiate a class
-```sh
 kwadracik = Square.new(2)
-####### ==> #<Square:0xb7378a7c @name="Kwadrat", @bok=2>
-```
-
-```sh
+# ==> #<Square:0xb7378a7c @name="Kwadrat", @bok=2>
 kwadracik.isHasAla?
 # ==> true
-```
-```sh
+
 nowyKwadrat = Square.new(2)
-```
-####### ==> #<Square:0xb7374c38 @name="Kwadrat", @bok=2>
+# ==> #<Square:0xb7374c38 @name="Kwadrat", @bok=2>
 
 # Wszystkie metody instancji
-```sh
 Square.instance_methods
 # ==> ["inspect", "name", "tap", "clone", "public_methods", "__send__", "name=", "object_id", "instance_variable_defined?", "equal?", "freeze", "bok", "Ala_ma_kota!", "extend", "x", "send", "methods", "bok=", "hash", "x=", "dup", "to_enum", "instance_variables", "eql?", "instance_eval", "id", "y", "singleton_methods", "taint", "enum_for", "frozen?", "instance_variable_get", "instance_of?", "display", "to_a", "method", "Autor", "isHasAla?", "type", "instance_exec", "protected_methods", "==", "Pole", "===", "instance_variable_set", "kind_of?", "respond_to?", "to_s", "class", "private_methods", "=~", "tainted?", "__id__", "untaint", "nil?", "is_a?"]
-```
+
 # Metody zdefiniowane przez creatora
-```sh
 Square.instance_methods(false)
 # ==> ["bok=", "Ala_ma_kota!", "Pole", "bok"]
-```
 
 # Wywołajmy pare metod ;)
-```sh
 kwadracik.name 
 # ==> "Kwadrat"
-
 kwadracik.name = "Prostokat" 
 # ==> "Prostokat"
 kwadracik.name 
@@ -150,42 +120,34 @@ nowyKwadrat.Ala_ma_kota!
 # ==> "Ala ma kota"
 nowyKwadrat.name
 # ==> "Ala ma kota"
-```
+
 # Wywołaj metode statyczna
-```sh
 Square.mow('Hi')
 # =HiSquare
 # ==> nil
-```
 
 # Zasieg zmiennych jest oznaczany przez sposob zapisu zmiennych
 # Zmienne zaczynajace sie od $ sa zmiennymi globalnymi
-```sh
 $var = "Jestem zmienna globalną"
 # ==> "Jestem zmienna globalną"
 defined? $var 
 # ==> "global-variable"
-```
+
 # Zmienne zaczynajace sie od @ sa zwyklymi zmiennymi 
-```sh
 @var = "Jestem zmienna instancji"
 # ==> "Jestem zmienna instancji"
 defined? @var
 # ==> "instance-variable"
-```
+
 # Zmienne zaczynajace sie od @@ sa zmiennymi klasy
-```sh
 @@var = "Jestem zmienna klasy"
 # ==> "Jestem zmienna klasy"
 defined? @@var
 # ==> "class variable"
-```
 
 # Zmienne zaczynajace sie na wielka litere sa Stałymi
-```sh
 Var = "Jestem stała"
 # ==> "Jestem stała"
 defined? Var
 # ==> "constant"
-```
 
